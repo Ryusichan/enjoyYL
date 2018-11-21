@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>패럴랙스 스크롤링</title>
+		<style>
+			*, html {
+				margin:0;
+				padding:0
+			}
+			#sky {
+				background:url('images/bg1.png') 50% 0;
+				/*position:relative;*/
+				width:100%;
+				height:2200px;
+				margin:0 auto;						
+			}			
+			#sky article {
+				position:absolute;
+				top:900px;
+				left:40%;
+			}
+			article{
+				width:23%;
+			}
+			article img{
+				width:100%;
+			}
+			@media(max-width: 430px){
+			article{
+				width:35%;
+			}	
+			#sky {
+				height:1800px;
+				margin:0 auto;						
+			}			
+			}
+    </style>	  
+	</head>	
+	<body>	
+		<section id="sky" data-type="background" data-speed="0.5">
+			<article data-type="man"><img src="images/falling-man.png" ></article>
+    </section>	
+    
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        var wd = $(window);
+        $('section[data-type="background"]').each(function(){
+          var bg = $(this);
+          wd.scroll(function(){
+            var yPos = -(wd.scrollTop() / bg.data('speed'));
+            var coords = '50%' + yPos + 'px';
+            bg.css({backgroundPosition:coords});
+          });
+        });
+      });
+        $(document).ready(function() {
+        var wm = $(window);
+        $('article[data-type="man"]').each(function(){
+          var bm = $(this);
+          wm.scroll(function(){
+            var yPos = -(wm.scrollTop() / bm.data('speed'));
+            var coordsm = '150%' + yPos + 'px';
+            bm.css({backgroundPosition:coordsm});
+          });
+        });
+      });
+    </script>  
+	</body>
+</html>

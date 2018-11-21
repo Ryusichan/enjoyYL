@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hulk change!</title>
+	<style>
+
+		#change {
+		  -webkit-transition: all 2s ease;  
+		  -moz-transition: all 2s ease;  
+		  -o-transition: all 2s ease;  
+		  -ms-transition: all 2s ease;  
+		  transition: all 2s ease;
+		}
+
+		.transform-active {
+		  background-color: #45CEE0;
+		  height: 200px;
+		  width: 200px;
+		}
+  
+	    body{
+		      background-color: black;
+		      transition:all 1s;
+		    }
+		.background{
+			margin:0 auto;
+			text-align: center;
+		}
+		.background img:hover{
+			position: center;
+            transform: scale(1.3);
+            opacity: 0.5;
+            
+			
+          -webkit-transition: all 1000ms cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+      -webkit-transition: all 1000ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+         -moz-transition: all 1000ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+           -o-transition: all 1000ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+              transition: all 1000ms cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+ 
+      -webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+      -webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+         -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+           -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+              transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+    }
+		}
+	</style>
+</head>
+	<body onload="document.querySelector('body').style.backgroundColor='white';">
+		<div class="background">
+			<p><h2>Click me!</h2></p>
+		<img id="change" src="images/hulk-before.png" alt="" onclick="changeimage()">
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+			function changeimage() {
+			    var image = document.getElementById('change');
+			    if (image.src.match("images/hulk-before.png")){
+			        image.src = "images/hulk.png";
+			    } else {
+			        image.src = "images/hulk-before.png";
+			    }
+				};
+			// $(function(){
+			// 	$("#change").click(function(){
+			// 		$("#change").animate({opacity:0},2000);
+			// 	});
+			// };
+
+
+				
+		</script>
+	</body>
+</html>
